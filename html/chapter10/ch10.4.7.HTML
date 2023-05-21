@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 id="justwhy">Click anywhere to start the game.</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var X = 0;
+        var Y = 0;
+
+        var appearCount = 0;
+        var clickCount = 0;
+        const MAX_APPEAR_COUNT = 10
+
+        var id = 0;
+        var duration = 4000;
+
+        var popHeading = function () {
+            if (appearCount < MAX_APPEAR_COUNT + 1) {
+                console.log("Times shown: " + appearCount)
+                if (appearCount != clickCount) {
+                    $("#justwhy").text("You loose! Appearance: " + appearCount + ", clickCount: " + clickCount);
+                    clearInterval(id)
+                } else {
+                    $("#justwhy").text("Appearance: " + appearCount + ", clickCount: " + clickCount);
+                    X = Math.random() * 600;
+                    Y = Math.random() * 600;
+                }
+                $("#justwhy").offset({
+                    left: X,
+                    top: Y
+                });
+                appearCount++;
+            } else {
+                if (clickCount == MAX_APPEAR_COUNT + 1) {
+                    $("#justwhy").text("you win! Congrats")
+                    clearInterval(id)
+                }
+            }
+        };
+
+        $("html").ready(function (event) {
+            clearInterval(id)
+            X = Math.random() * 600;
+            Y = Math.random() * 600;
+            $("#justwhy").offset({
+                left: X,
+                top: Y
+            });
+            $("html").click(function (event) {
+                clickCount++
+                $("#justwhy").text("started game, click now and as soon as position changes!");
+                if (clickCount != appearCount) {
+                    $("#justwhy").text("you loose! appearCount: " + appearCount + ", clickCount: " + clickCount);
+                } else {
+                    duration = duration * 0.9
+                    id = setInterval(popHeading, duration);
+                }
+            })
+            appearCount++
+            id = setInterval(popHeading, duration);
+        })
+
+    </script>
+</body>
+
+</html>

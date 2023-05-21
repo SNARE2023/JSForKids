@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="modText">Page Title</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="changeText">Header Text</h1>
+    </header>
+    <main>
+        <h1 id="EditText">Body Text</h1>
+
+        <script>
+            var newText = prompt("Enter new text for title:");
+            document.getElementById("modText").innerHTML = newText;
+            var newText = prompt("Enter new text for h1:");
+            document.getElementById("EditText").innerHTML = newText;
+            var newText = prompt("Enter new text for body:");
+            document.getElementById("EditText").innerHTML = newText;
+        </script>
+    </main>
+</body>
+
+</html>

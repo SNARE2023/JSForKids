@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    NAME PRINTING
+</head>
+
+<body>
+    <script>
+        var name = prompt("Hola mi amigos/amigas. Tell me, what is your name?")
+        var numberOfTimes = prompt("How many times do you want your name printed? Do not enter a number less than 20. You'll have to click it all away.")
+        var printXnumTimes = function (whatToDraw, howManyTimes) {
+            if(howManyTimes > 20){
+                    alert("Too big of a number. Please enter a smaller one.")
+                    var numberOfTimes = prompt("How many times do you want your name printed? Do not enter a number less than 20. You'll have to click it all away.")
+                }else{
+                    alert("Your number is just fine... i think.")
+                }
+            for (var i = 0; i < howManyTimes; i++) {
+                alert(i + " " + whatToDraw);
+            }
+        };
+        printXnumTimes(name, numberOfTimes);
+        var end = confirm("Was this your name?");
+        if (end) {
+            alert("Cool. Anyway, I'm out. Seeya round");
+        } else {
+            alert("Well, that's not my fault. You should probably complain to my programmer instead of yn'ow. Me.");
+        }
+    </script>
+</body>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head> ooo</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <h1 id = "oas"> IXC</h1>
+
+
+    <script>
+        var id = 0;
+        var X = 0;
+        var Y = 0;
+        var count = 0;
+        var speed = 1000;
+        var clicks = 0;
+
+        var moveHeading = function () {
+            if (count == 0) {
+                X = X - 200;
+            } else if (count == 1) {
+                Y = Y + 200;
+            } else if (count == 2) {
+                X = X + 200;
+            } else if (count == 3) {
+                Y = Y - 200;
+                clearInterval(id);
+            }
+            $("#oas").offset({
+                left: X,
+                top: Y
+            });
+            count++;
+        };
+
+        $("html").click(function () {
+            X = event.pageX
+            Y = event.pageY
+            clicks++;
+            $(this).text("Clicked " + clicks + " times.");
+            clearInterval(id);
+            //
+            speed *= 0.9;
+            id = setInterval(moveHeading, speed);
+            if (clicks == 10) {
+                clearInterval(id);
+                $(this).text("You Win!");
+            }
+        });
+    </script>
+</body>
+
+</html>

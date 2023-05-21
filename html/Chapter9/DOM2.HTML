@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="changeText">Header Text</h1>
+    </header>
+    <main>
+        <h1>Body Text</h1>
+
+        <script src="https://code.jquery.com/jquery-2.1.0.js"> </script>
+
+        <script>
+            var newText = prompt("Enter new text for header");
+            $("#changeText").text(newText);
+            for (var l = 0; l < 3; l++) {
+                var paraText = prompt("please type in new text for paragraph.")
+                $("changeText").append("<p>" + paraText + "</p>").slideToggle(1000)
+            }
+            $("h1").fadeOut(4000).fadeIn(4000).slideUp(1000).slideDown(1000).slideToggle(1000)
+        </script>
+    </main>
+</body>
+
+</html>

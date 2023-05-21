@@ -1,0 +1,11 @@
+1.] What is a condition?
+
+
+2.] What is a loop?
+
+
+3.] What is embedding JS into HTML
+
+
+4.] What are the types of conditionals
+

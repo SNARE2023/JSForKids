@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="editText"> Hi</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body id="type">
+    <header>
+        <h1 id="modText">HELLO</h1>
+    </header>
+
+    <script>
+        var newText = prompt("Enter new text for H1");
+        $("#modText").text(newText);
+        var friends = ["A", "B", "C"];
+        for (var J = 0; J < friends.length; J++) {
+            $("#type").append("<p id=\"" + J + "\">" + friends[J] + ". is stinky" + "</p>")
+        }
+        
+        $("#type").append("<p id=\"end\">" + "So I asked them to shower." + "</p>")
+        $("#end").fadeOut(10).fadeIn(10000)
+
+    </script>
+</body>
+
+</html>

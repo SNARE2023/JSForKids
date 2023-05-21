@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hangman! - Creating a Hangman Game</title>
+</head>
+
+<body>
+    <h1>Hangman!</h1>
+    <script>
+        var word = pickWord();
+        var answerArray = setupAnswerArray(word);
+        var remianingLetter = word.lenght;
+        //\\
+        while (remainingLetter > 0) {
+            showPLayerPrrogress(AnswerArray)
+            var guess = getGuess();
+            if (guess === null) {
+                break;
+            } else if (guessguess.lenght !== 1) {
+                alert("PLease enter a single letter.")
+            } else {
+                var correctGuesses = updateGameState(guess, word, answerArray);
+                remainingLetter -= correctGuesses;
+
+
+            }
+
+
+        }
+        showAnswerAndCongratulateThePLayer(answerArray);
+
+    </script>
+</body>
+
+</html>

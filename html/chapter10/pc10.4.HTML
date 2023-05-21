@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <h1 id="justwhy">susy</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var X = 0;
+        var id = 0;
+        var Y = 0;
+        var count = 0;
+        var duration = 1000;
+        var clicks = 0;
+
+        var moveHeading = function () {
+            if (count == 0) {
+                X = X - 200
+            } else if (count == 1) {
+                Y = Y + 200
+            } else if (count == 2) {
+                X = X + 200
+            } else if (count == 3) {
+                Y = Y - 200 
+                clearInterval(id)
+            }
+            $("#justwhy").offset({
+                left: X,
+                top: Y
+            });
+            count++;
+        };
+        
+        $("#justwhy").click(function (event) {
+            X = event.pageX
+            Y = event.pageY
+            count = 0
+            $("#justwhy").offset({
+                left: X,
+                top: Y
+            });
+           
+            clicks++;
+            $("#justwhy").text("Clicked " + clicks + " times.");
+            duration = duration * 0.5;
+            clearInterval(id)
+            id = setInterval(moveHeading, duration);
+            if (clicks == 10) {
+                clearInterval(id);
+                $("#justwhy").text("You Win!");
+            }
+        });
+  
+
+    </script>
+</body>
+
+</html>

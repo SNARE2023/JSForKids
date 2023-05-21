@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find the buried treasure!</title>
+</head>
+
+<body>
+    <h1 id="heading">Find the buried treasure! Or else.</h1>
+    <img id="map" width="500" height="500" src="http://nostarch.com/images/treasuremap.png">
+    <h1>ddddd
+        <p id="distance">REE</p>
+        <h3 id="WHAT">AHHHHHHHHHHHHHHHHHH</h3>
+        <h2 id="clicks-remaining"> GOOFYAHH</h2>
+        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+        <script>
+            var getRandomNumber = function (size) {
+                return Math.floor(Math.random() * size);
+            };
+            
+            var getDistance = function (event, target) {
+                var diffX = event.offsetX - target.x;
+                var diffY = event.offsetY - target.y;
+                return Math.sqrt((diffX * diffX) + (diffY * diffY));
+            };
+            
+            var getDistanceHint = function (distance) {
+                if (distance < 10) {
+                    return "1000 celsius!";
+                } else if (distance < 15){
+                    return "Scorching hot!";
+                } else if (distance < 20) {
+                    return "Really hot";
+                } else if (distance < 40) {
+                    return "Hot";
+                } else if (distance < 80) {
+                    return "Warm";
+                } else if (distance < 160) {
+                    return "Cold";
+                } else if (distance < 320) {
+                    return "Really cold";
+                } else if (distance < 390){
+                    return "Freezing!";
+                } else {
+                    return ":SKULL:";
+                }
+            };
+            
+            var width = 475;
+            var height = 475;
+            var clicks = 0;
+            const CLICK_LIMIT = 50;
+            
+            var target = {
+                x: getRandomNumber(width),
+                y: getRandomNumber(height)
+            };
+            
+            $("#map").click(function (event) {
+                if (clicks >= CLICK_LIMIT) {
+                  alert("GAME OVER")
+                    return; 
+                }
+                
+                
+                clicks++;
+                var distance = getDistance(event, target);
+                var distanceHint = getDistanceHint(distance);
+                var remainingClicks = CLICK_LIMIT - clicks;
+                $("#clicks-remaining").text("Remaining clicks: " + remainingClicks);
+                $("#distance").text(distanceHint);
+                
+                if (distance < 9) {
+                   $("#WHAT").text("You found the tresure in " + clicks + " steps and you had " + remainingClicks + " left to spare")
+                }
+            });
+        </script>
+    </h1>
+</body>
+
+</html>

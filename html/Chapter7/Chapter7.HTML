@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hangman! - Creating a Hangman Game</title>
+</head>
+
+<body>
+    <h1>Hangman!</h1>
+    <script>
+
+
+        
+        var words = [
+            "hope",
+            "ghastly",
+            "ordeal",
+            "toxin",
+            "macabre",
+            "lonely",
+            "insane",
+            "horror",
+            "fantasy",
+            "toadstool",
+            "murderously",
+            "knife",
+            "evidence",
+            "crime",
+            "victim",
+        ];
+        // Pick a random word
+        var randIdx = (Math.random() * words.length)
+        console.log(randIdx)
+        var randWord = words[Math.floor(randIdx)];
+        // Set up the answer array
+        var answerArray = [];
+        for (var i = 0; i < randWord.length; i++) {
+            answerArray[i] = "[]";
+        }
+        var remainingLetters = randWord.length;
+        // The game loop
+        const maxTries = remainingLetters + 2
+        var urTries = 0
+        while (remainingLetters > 0 && urTries < maxTries) {
+            // Show the player their progress
+            alert(answerArray.join(" "));
+            // Get a guess from the player
+            var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+            if (guess === null) {
+                // Exit the game loop
+                break;
+            } else if (guess.length !== 1) {
+                alert("Please enter a single letter.");
+            } else {
+                // Update the game state with the guess
+                urTries++
+    
+                for (var j = 0; j < randWord.length; j++) {
+                    if (randWord[j] === guess.toLowerCase()) {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            }
+            // The end of the game loop
+        }
+        if (answerArray.includes("[]")) {
+            alert("Better luck nextime, the word was " + randWord)
+        } else {
+            alert("Good job! The answer was " + randWord)
+        }
+        // Show the answer
+        alert(answerArray.join(" "));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 id="justwhy">Click anywhere to start the game.</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var X = 0;
+        var id = 0;
+        var Y = 0;
+        var stepCount = 0;
+        var loopCount = 1;
+        var duration = 1000;
+        var clickCount = 0;
+        const MAX_LOOP_COUNT = 10
+    
+
+        var moveHeading = function () {
+            if (loopCount < MAX_LOOP_COUNT+1) {
+                console.log("loopCount: " + loopCount)
+                console.log("stepCount: " + stepCount)
+                $("#justwhy").text("started loop: " + loopCount + ", step: " + stepCount + ", clickCount: " + clickCount);
+                if (stepCount == 0) {
+                    X = X + 200
+                } else if (stepCount == 1) {
+                    Y = Y + 200
+                } else if (stepCount == 2) {
+                    X = X - 200
+                } else if (stepCount == 3) {
+                    Y = Y - 200
+                    if (loopCount != clickCount) {
+                        $("#justwhy").text("you loose!: " + loopCount + ", step: " + stepCount + ", clickCount: " + clickCount)
+                        clearInterval(id)
+                    }
+                    loopCount++
+                }
+                $("#justwhy").offset({
+                    left: X,
+                    top: Y
+                });
+
+                if (stepCount < 3) {
+                    stepCount++;
+                } else {
+                    stepCount = 0;
+                }
+            } else {
+                if (clickCount == MAX_LOOP_COUNT) {
+                    $("#justwhy").text("you win!")
+                    clearInterval(id)
+                }
+            }
+        };
+
+        $("html").click(function (event) {
+            clearInterval(id)
+            if (loopCount == 1 && stepCount == 0) {
+                X = event.pageX
+                Y = event.pageY
+                $("#justwhy").offset({
+                    left: X,
+                    top: Y
+                });
+                $("#justwhy").text("started looping, wait for step 1 to click");
+                id = setInterval(moveHeading, duration);
+            } else {
+                clickCount++           
+                if (clickCount != loopCount) {
+                    $("#justwhy").text("you loose!: " + loopCount + ", step: " + stepCount + ", clickCount: " + clickCount);                  
+                } else {
+                    duration = duration * 0.9
+                    id = setInterval(moveHeading, duration);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
