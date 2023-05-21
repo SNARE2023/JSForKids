@@ -1,0 +1,20 @@
+
+
+1. What are arrays?
+
+Groups of data.
+
+2. what are elements and indexes?
+
+elements - The things inside an array.
+
+Index - The number that matches with the place of an
+item in an array. It s   tarts woth 0
+
+3. What is a queue data structure?
+FIFO
+
+4. What is a stack data structure?
+LIFO
+
+5. 

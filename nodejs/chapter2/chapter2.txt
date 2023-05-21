@@ -1,0 +1,15 @@
+1. What is data?
+Data is information.
+
+2. What are data types?
+Data types are different forms of data/information
+
+3. what data types does nodejs have?
+Strings, numbers, Booleans.
+
+4. What is the 'not' operator?
+An operation that can make a true statement false and a false one true. (!)
+
+5. What is the difference between == and ===?
+== is a rough equal to across data types
+=== is a pricise equal to which means data of same type

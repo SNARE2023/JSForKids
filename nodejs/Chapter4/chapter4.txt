@@ -1,0 +1,17 @@
+1.] What are objects? how are they different from arrays?
+
+Objects are a single item with multiple properties. Where as arrays are more of a 
+list of numerous things.
+
+
+2.] Create an object called student with the following fields: Name, age, favourite colour,
+ height & zodiac... (WARNING do not believe in astrology. It's nonsense)
+
+
+ var student = {
+ "Name": "Vihaan",
+ "Age": 11,
+ "Favourite colour": "Lime"
+ "Height": "4ft 9inch",
+ "zodiac": "Pisces"
+};
