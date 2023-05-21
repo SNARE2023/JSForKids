@@ -6,7 +6,7 @@ var num2 = 6
 
 // divide num1 by num2 and add 3 to it
 var num3 = num1 / num2 + 3
-console.log(num3)
+console.log("num1 / num2 is: " + num3)
 
 // declar two string variables
 var greeting = "Hi "
